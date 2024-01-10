@@ -6,11 +6,13 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material'
+
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { Link as RouterLink } from 'react-router-dom'
 import Logo from '../Logo'
 import { NavbarContainer } from './Navbar.elements'
-const pages = ['Movies', 'TV Shows', 'Suggest me']
+
+const pages = ['Movies', 'TV Shows'] //Suggest me
 
 function Navbar() {
   return (
@@ -41,7 +43,7 @@ function Navbar() {
               <Button
                 sx={{ color: '#A8AEBF', fontWeight: 'bold' }}
                 key={`page-${idx}`}
-                component={Link}
+                component={RouterLink}
                 to={`/${page.toLowerCase().split(' ').join('-')}`}
                 color="inherit"
               >

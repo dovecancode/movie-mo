@@ -11,15 +11,3 @@ body {
   background-size: cover;
   background-color: #20283e; /*#121829*/
 }
-
-/* body:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: #121829;
-  opacity: 0.8;
-  z-index: -1;
-} */
