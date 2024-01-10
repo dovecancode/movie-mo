@@ -1,8 +1,16 @@
+import { ThemeProvider } from '@emotion/react'
+
+import { BrowserRouter } from 'react-router-dom'
+import theme from './MovieTheme'
+import Header from './components/Header'
+
 function App() {
   return (
-    <>
-      <h1>Movie Mo</h1>
-    </>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
