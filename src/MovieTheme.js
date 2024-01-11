@@ -7,6 +7,9 @@ const theme = createTheme({
     },
   },
   typography: {
+    h3: {
+      fontSize: '1.6rem',
+    },
     fontFamily: ['Poppins', 'sans-serif'].join(','),
   },
 })
