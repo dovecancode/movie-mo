@@ -1,7 +1,6 @@
 import { ThemeProvider } from '@emotion/react'
-
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import theme from './MovieTheme'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import { Home, Movies, TvShows } from './page'
 

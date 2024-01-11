@@ -1,0 +1,43 @@
+import styled from '@emotion/styled'
+import { Card } from '@mui/material'
+
+export const MovieCardElement = styled(Card)(({ theme }) => ({
+  position: 'relative',
+  height: '100%',
+  width: '100%',
+
+  padding: theme.spacing(2),
+  background: 'transparent',
+  borderRadius: ' 0.75rem',
+  // flex: 1,
+
+  marginBottom: '1rem',
+  // color: '#EBEEF5',
+  transition: 'all .2s ease-in',
+  transform: 'scale(.9)',
+
+  '& > a': {
+    textDecoration: 'none',
+    color: 'rgba(235, 238, 245, 1)',
+  },
+
+  '@media (width >= 35em )': {
+    flexBasis: 'calc(100% / 2 - 2rem)',
+  },
+
+  '@media(width >= 60rem)': {
+    flexBasis: 'calc( 100%/ 4 - 2rem)',
+  },
+}))
+
+export const BackgroundBlur = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  zIndex: -1,
+  // background: 'rgba(32, 40, 62, 0.80);',
+  borderRadius: ' 0.75rem',
+  backdropFilter: 'blur(40px)',
+}))
