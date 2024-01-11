@@ -12,7 +12,6 @@ export const MovieCardElement = styled(Card)(({ theme }) => ({
   // flex: 1,
 
   marginBottom: '1rem',
-  // color: '#EBEEF5',
   transition: 'all .2s ease-in',
   transform: 'scale(.9)',
 
@@ -30,14 +29,14 @@ export const MovieCardElement = styled(Card)(({ theme }) => ({
   },
 }))
 
-export const BackgroundBlur = styled('div')(({ theme }) => ({
+export const BackgroundBlur = styled('div')(() => ({
   position: 'absolute',
   top: 0,
   left: 0,
   right: 0,
   bottom: 0,
   zIndex: -1,
-  // background: 'rgba(32, 40, 62, 0.80);',
+  background: 'rgba(32, 40, 62, 0.50);',
   borderRadius: ' 0.75rem',
   backdropFilter: 'blur(40px)',
 }))
