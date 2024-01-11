@@ -6,7 +6,7 @@ export const MovieCardElement = styled(Card)(({ theme }) => ({
   height: '100%',
   width: '100%',
 
-  padding: theme.spacing(2),
+  padding: theme.spacing(1),
   background: 'transparent',
   borderRadius: ' 0.75rem',
   // flex: 1,
