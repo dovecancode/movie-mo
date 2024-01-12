@@ -11,7 +11,7 @@ const theme = createTheme({
   },
   typography: {
     h3: {
-      fontSize: '1.6rem',
+      fontSize: '1.2rem',
     },
     fontFamily: ['Poppins', 'sans-serif'].join(','),
   },

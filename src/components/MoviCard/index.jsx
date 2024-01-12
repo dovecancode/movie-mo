@@ -1,32 +1,53 @@
 import { Box, CardContent, CardMedia, Link, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 import { Link as RouterLink } from 'react-router-dom'
-import StarRating from '../StarRating'
 
-import blackWidow from '../../assets/black-widow.jpg'
+import StarRating from '../StarRating'
 import { BackgroundBlur, MovieCardElement } from './MovieCard.element'
-function MovieCard() {
+
+function MovieCard({
+  poster_path,
+  name,
+  title,
+  vote_average,
+  first_air_date,
+  release_date,
+  id,
+}) {
   return (
     <MovieCardElement>
       <BackgroundBlur></BackgroundBlur>
-      <Link to="/" component={RouterLink}>
+      <Link to={`/${id}`} component={RouterLink}>
         <Box sx={{ position: 'relative' }}>
           <CardMedia
             className="card-media"
             component="img"
-            image={blackWidow}
+            image={`https://image.tmdb.org/t/p/w500/${poster_path}`}
             sx={{ borderRadius: '0.5rem' }}
           />
-          <StarRating rating="6.8" />
+          <StarRating rating={+vote_average.toFixed(1)} />
         </Box>
         <CardContent className="card-content">
           <Typography gutterBottom variant="h3" component="div">
-            Black Widow
+            {name || title}
           </Typography>
-          <Typography component="span">Release: 2023-12-14</Typography>
+          <Typography component="span">
+            Release: {first_air_date || release_date}
+          </Typography>
         </CardContent>
       </Link>
     </MovieCardElement>
   )
+}
+
+MovieCard.propTypes = {
+  vote_average: PropTypes.number,
+  poster_path: PropTypes.string,
+  name: PropTypes.string,
+  title: PropTypes.string,
+  first_air_date: PropTypes.string,
+  release_date: PropTypes.string,
+  id: PropTypes.number,
 }
 
 export default MovieCard

@@ -13,7 +13,7 @@ function StarRating({ rating }) {
 }
 
 StarRating.propTypes = {
-  rating: PropTypes.string,
+  rating: PropTypes.number,
 }
 
 export default StarRating
