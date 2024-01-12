@@ -7,7 +7,7 @@ export const ButtonContainer = styled(Box)(() => ({
   borderRadius: '0.75rem',
   background: 'rgba(0,0,0, 0.2)',
   backdropFlter: 'blur(40px)',
-  maxWidth: '22%',
+  maxWidth: '16rem',
 }))
 
 export const ButtonCategory = styled(Button)(({ theme }) => ({

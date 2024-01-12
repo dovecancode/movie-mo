@@ -7,7 +7,9 @@ export const PopularMoviesSection = styled('section')(() => ({
 
 export const MovieCards = styled(Stack)(() => ({
   flexWrap: 'wrap',
-  // justifyContent: 'space-between',
+  justifyContent: 'space-between',
   // alignItems: 'center',
+  // justifyContent: 'center',
+
   alignContent: 'center',
 }))

@@ -9,7 +9,7 @@ export const MovieCardElement = styled(Card)(({ theme }) => ({
   padding: theme.spacing(1),
   background: 'transparent',
   borderRadius: ' 0.75rem',
-  // flex: 1,
+  flex: 1,
 
   marginBottom: '1rem',
   transition: 'all .2s ease-in',
@@ -21,11 +21,13 @@ export const MovieCardElement = styled(Card)(({ theme }) => ({
   },
 
   '@media (width >= 35em )': {
-    flexBasis: 'calc(100% / 2 - 2rem)',
+    // flexBasis: 'calc(100% / 2 - 2rem)',
+    flex: '0 1 calc(100% / 2 - 1rem)',
   },
 
   '@media(width >= 60rem)': {
-    flexBasis: 'calc( 100%/ 4 - 2rem)',
+    // flexBasis: 'calc( 100%/ 4 - 2rem)',
+    flex: '0 1 calc( 100%/ 4 - 1rem)',
   },
 }))
 
