@@ -12,11 +12,12 @@ function MovieCard({
   vote_average,
   first_air_date,
   release_date,
+  media_type,
   id,
 }) {
   return (
     <MovieCardElement>
-      <BackgroundBlur></BackgroundBlur>
+      <BackgroundBlur className="bg-blur"></BackgroundBlur>
       <Link to={`/${id}`} component={RouterLink}>
         <Box sx={{ position: 'relative' }}>
           <CardMedia
@@ -31,7 +32,10 @@ function MovieCard({
           <Typography gutterBottom variant="h3" component="div">
             {name || title}
           </Typography>
-          <Typography component="span">
+          <Typography component="p">
+            {media_type === 'tv' ? 'TV Series' : 'Movie'}
+          </Typography>
+          <Typography component="p">
             Release: {first_air_date || release_date}
           </Typography>
         </CardContent>
@@ -48,6 +52,7 @@ MovieCard.propTypes = {
   first_air_date: PropTypes.string,
   release_date: PropTypes.string,
   id: PropTypes.number,
+  media_type: PropTypes.string,
 }
 
 export default MovieCard

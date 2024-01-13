@@ -1,5 +1,7 @@
+import MotionPicture from '../../components/MotionPicture'
+
 function Movies() {
-  return <div>Movies</div>
+  return <MotionPicture />
 }
 
 export default Movies

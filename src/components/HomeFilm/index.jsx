@@ -3,12 +3,12 @@ import { MovieCards, PopularMoviesSection } from './PopularMovies.elements.js'
 
 import { useEffect, useState } from 'react'
 import CategoryButtons from '../CategoryButtons'
-import MovieCard from '../MoviCard'
+import MovieCard from '../MovieCard'
 
 import movieServices from '../../services/movieServices.js'
 import LoaderSpinner from '../LoaderSpinner'
 
-function PopularMovies() {
+function HomeFilm() {
   const [trending, setTrending] = useState([])
   const [status, setStatus] = useState('idle')
 
@@ -38,7 +38,7 @@ function PopularMovies() {
 
   return (
     <PopularMoviesSection>
-      <Container>
+      <Container className="container" disableGutters>
         <CategoryButtons />
 
         {isLoading ? (
@@ -57,4 +57,4 @@ function PopularMovies() {
   )
 }
 
-export default PopularMovies
+export default HomeFilm
