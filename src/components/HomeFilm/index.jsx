@@ -1,12 +1,12 @@
 import { Box, Container } from '@mui/material'
-import { MovieCards, PopularMoviesSection } from './PopularMovies.elements.js'
+import { PopularMoviesSection } from './PopularMovies.elements.js'
 
 import { useEffect, useState } from 'react'
 import CategoryButtons from '../CategoryButtons'
-import MovieCard from '../MovieCard'
 
 import movieServices from '../../services/movieServices.js'
 import LoaderSpinner from '../LoaderSpinner'
+import MovieCards from '../MovieCards'
 
 function HomeFilm() {
   const [trending, setTrending] = useState([])
@@ -20,7 +20,6 @@ function HomeFilm() {
         const { results } = data
         setTrending(results)
         setStatus('success')
-        console.log(results)
       } catch (error) {
         setStatus('error')
         console.log(error)
@@ -46,11 +45,7 @@ function HomeFilm() {
             <LoaderSpinner />
           </Box>
         ) : (
-          <MovieCards direction={{ sm: 'row' }}>
-            {trending.map((trend) => (
-              <MovieCard key={`trend-${trend.id}`} {...trend} />
-            ))}
-          </MovieCards>
+          <MovieCards films={trending} />
         )}
       </Container>
     </PopularMoviesSection>
