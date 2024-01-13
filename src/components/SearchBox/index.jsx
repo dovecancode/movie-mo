@@ -9,16 +9,6 @@ function SearchBox() {
   // this state is for input icon search to on and off
   const [isFocus, setIsFocus] = useState(false)
 
-  // const onSearchIcon = isFocus
-  //   ? {}
-  //   : {
-  //       startAdornment: (
-  //         <InputAdornment position="start">
-  //           <CiSearch size={25} color="rgba(71, 80, 105, 1)" />
-  //         </InputAdornment>
-  //       ),
-  //     }
-
   return (
     <Box className="search-box-input-container" sx={{ paddingBlock: '2rem' }}>
       <SearchBoxInput
