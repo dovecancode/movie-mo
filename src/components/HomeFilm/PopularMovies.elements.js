@@ -10,6 +10,6 @@ export const MovieCards = styled(Stack)(() => ({
   justifyContent: 'space-between',
   // alignItems: 'center',
   // justifyContent: 'center',
-
+  alignItems: 'stretch',
   alignContent: 'center',
 }))

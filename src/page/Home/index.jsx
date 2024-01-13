@@ -1,7 +1,7 @@
-import PopularMovies from '../../components/PopularMovies'
+import HomeFilm from '../../components/HomeFilm'
 
 function Home() {
-  return <PopularMovies />
+  return <HomeFilm />
 }
 
 export default Home
