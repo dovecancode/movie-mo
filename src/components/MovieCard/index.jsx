@@ -5,6 +5,10 @@ import { Link as RouterLink } from 'react-router-dom'
 import StarRating from '../StarRating'
 import { BackgroundBlur, MovieCardElement } from './MovieCard.element'
 
+function shorterTitle(title) {
+  return title?.substring(0, 15)
+}
+
 function MovieCard({
   poster_path,
   name,
@@ -30,7 +34,8 @@ function MovieCard({
         </Box>
         <CardContent className="card-content">
           <Typography gutterBottom variant="h3" component="div">
-            {name || title}
+            {name?.length >= 20 ? shorterTitle(name) + '...' : name}
+            {title?.length >= 20 ? shorterTitle(title) + '...' : title}
           </Typography>
           <Typography component="p">
             {media_type === 'tv' ? 'TV Series' : 'Movie'}
