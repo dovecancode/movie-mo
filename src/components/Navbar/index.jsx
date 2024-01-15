@@ -8,7 +8,7 @@ import {
 } from '@mui/material'
 
 import { FaArrowRightLong } from 'react-icons/fa6'
-import { Link as RouterLink } from 'react-router-dom'
+import { NavLink as RouterLink } from 'react-router-dom'
 import Logo from '../Logo'
 import { NavbarContainer } from './Navbar.elements'
 
@@ -41,7 +41,11 @@ function Navbar() {
           <Box sx={{ marginLeft: 'auto' }}>
             {pages.map((page, idx) => (
               <Button
-                sx={{ color: '#A8AEBF', fontWeight: 'bold' }}
+                sx={{
+                  color: '#A8AEBF',
+                  fontWeight: 'bold',
+                  '&.active': { color: 'secondary.main' },
+                }}
                 key={`page-${idx}`}
                 component={RouterLink}
                 to={`/${page.toLowerCase().split(' ').join('-')}`}

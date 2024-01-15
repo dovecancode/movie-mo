@@ -1,19 +1,24 @@
 import { Box, InputAdornment } from '@mui/material'
+import PropTypes from 'prop-types'
 import { SearchBoxInput } from './SearchBox.element'
 
 import { useState } from 'react'
 
 import { LuSearch } from 'react-icons/lu'
+import { useFilmContext } from '../../contexts/useFilmContext'
 
-function SearchBox() {
-  // this state is for input icon search to on and off
+function SearchBox({ placeholder }) {
+  const { query, handleSearchQuery } = useFilmContext()
+
+  // this state is for input border color and and off
   const [isFocus, setIsFocus] = useState(false)
 
   return (
     <Box className="search-box-input-container" sx={{ paddingBlock: '2rem' }}>
       <SearchBoxInput
         fullWidth
-        placeholder={'Search Movies'}
+        placeholder={placeholder}
+        value={query}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -28,9 +33,14 @@ function SearchBox() {
         }}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
+        onChange={(e) => handleSearchQuery(e.target.value)}
       />
     </Box>
   )
+}
+
+SearchBox.propTypes = {
+  placeholder: PropTypes.string,
 }
 
 export default SearchBox

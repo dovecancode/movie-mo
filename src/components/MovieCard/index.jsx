@@ -2,12 +2,11 @@ import { Box, CardContent, CardMedia, Link, Typography } from '@mui/material'
 import PropTypes from 'prop-types'
 import { Link as RouterLink } from 'react-router-dom'
 
+import { shorterTitle } from '../../utils/helper'
 import StarRating from '../StarRating'
 import { BackgroundBlur, MovieCardElement } from './MovieCard.element'
 
-function shorterTitle(title) {
-  return title?.substring(0, 15)
-}
+import placeholder from '../../assets/placeholder.jpg'
 
 function MovieCard({
   poster_path,
@@ -27,7 +26,11 @@ function MovieCard({
           <CardMedia
             className="card-media"
             component="img"
-            image={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+            image={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                : placeholder
+            }
             sx={{ borderRadius: '0.5rem' }}
           />
           <StarRating rating={+vote_average.toFixed(1)} />
@@ -37,11 +40,16 @@ function MovieCard({
             {name?.length >= 20 ? shorterTitle(name) + '...' : name}
             {title?.length >= 20 ? shorterTitle(title) + '...' : title}
           </Typography>
+          {media_type && (
+            <Typography component="p">
+              {media_type === 'tv' ? 'TV Series' : 'Movie'}
+            </Typography>
+          )}
+
           <Typography component="p">
-            {media_type === 'tv' ? 'TV Series' : 'Movie'}
-          </Typography>
-          <Typography component="p">
-            Release: {first_air_date || release_date}
+            {/* {`Release: ${formatDate(first_air_date)}`}
+            {`Release: ${formatDate(release_date)}`} */}
+            Release: {first_air_date || release_date}s
           </Typography>
         </CardContent>
       </Link>

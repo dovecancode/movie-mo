@@ -5,3 +5,7 @@ export function formatDate(date) {
     day: 'numeric',
   })
 }
+
+export function shorterTitle(title) {
+  return title?.substring(0, 15)
+}
