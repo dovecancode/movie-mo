@@ -38,7 +38,7 @@ export const BackgroundBlur = styled('div')(() => ({
   right: 0,
   bottom: 0,
   zIndex: -1,
-  background: 'rgba(32, 40, 62, 0.50);',
+  // background: 'rgba(32, 40, 62, 0.50);',
   borderRadius: ' 0.75rem',
   backdropFilter: 'blur(40px)',
 }))

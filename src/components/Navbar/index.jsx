@@ -25,6 +25,7 @@ function Navbar() {
             sx={{ textDecoration: 'none', color: '#fff' }}
           >
             <Typography
+              variant="h3"
               component="h1"
               sx={{
                 flexGrow: 1,
@@ -34,7 +35,7 @@ function Navbar() {
               }}
             >
               <Logo size={40} />
-              Movie Mo
+              Dove Flix
             </Typography>
           </Link>
 

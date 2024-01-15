@@ -5,13 +5,20 @@ const FilmContext = createContext()
 
 function FilmProvider({ children }) {
   const [query, setQuery] = useState('')
+  const [mediaType, setMediaType] = useState('')
 
   function handleSearchQuery(q) {
     setQuery(q)
   }
 
+  function handleMediaType(type) {
+    setMediaType(type)
+  }
+
   return (
-    <FilmContext.Provider value={{ query, handleSearchQuery }}>
+    <FilmContext.Provider
+      value={{ query, mediaType, handleSearchQuery, handleMediaType }}
+    >
       {children}
     </FilmContext.Provider>
   )
