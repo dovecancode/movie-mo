@@ -1,5 +1,7 @@
+import MovieSeries from '../../components/MovieSeries'
+
 function TvShows() {
-  return <div>TvShows</div>
+  return <MovieSeries />
 }
 
 export default TvShows

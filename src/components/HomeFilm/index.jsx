@@ -16,9 +16,10 @@ function HomeFilm() {
     async function getTrendingVideo() {
       try {
         setStatus('loading')
-        const data = await movieServices.getTrending()
+        const data = await movieServices.fetchData('/trending/all/day')
         const { results } = data
         setTrending(results)
+
         setStatus('success')
       } catch (error) {
         setStatus('error')

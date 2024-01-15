@@ -5,29 +5,30 @@ class MovieServices {
     baseURL: 'https://api.themoviedb.org/3',
   })
 
-  config = {
-    headers: {
-      accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxM2U2NzYwYTNkMWZlYTY1Y2Y2ZDViZjAyMTZjNzkyNyIsInN1YiI6IjYyZDNkMjg1Y2Y2MmNkMDA0ZjJjNGU0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rRU9lxQO0pdJ4pFW_oUE7N0yqEHPhfb0u9M0TeRjkjI',
-    },
-  }
+  #api_key = '13e6760a3d1fea65cf6d5bf0216c7927'
 
-  async getTrending() {
+  // when you pass endpoints it should start with a slash
+  async fetchData(endpoints) {
     const res = await this.#httpInstance.get(
-      '/trending/all/day?language=en-US',
-      this.config
+      `${endpoints}?api_key=${this.#api_key}&language=en-US`
     )
     return res.data
   }
 
-  async getAllMovies() {
+  async fetchSearchData(cat, q) {
     const res = await this.#httpInstance.get(
-      '/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc',
-      this.config
+      `/search/${cat}?query=${q}&api_key=${this.#api_key}&language=en-US`
     )
     return res.data
   }
+
+  // async getAllMovies() {
+  //   const res = await this.#httpInstance.get(
+  //     '/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc',
+  //     this.config
+  //   )
+  //   return res.data
+  // }
 }
 
 export default new MovieServices()
