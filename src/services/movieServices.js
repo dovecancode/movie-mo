@@ -22,13 +22,19 @@ class MovieServices {
     return res.data
   }
 
-  // async getAllMovies() {
-  //   const res = await this.#httpInstance.get(
-  //     '/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc',
-  //     this.config
-  //   )
-  //   return res.data
-  // }
+  async getMovieDetails(id) {
+    const res = await this.#httpInstance.get(
+      `/movie/${id}?&api_key=${this.#api_key}&language=en-US`
+    )
+    return res.data
+  }
+
+  async getTvShowDetails(id) {
+    const res = await this.#httpInstance.get(
+      `/tv/${id}?&api_key=${this.#api_key}&language=en-US`
+    )
+    return res.data
+  }
 }
 
 export default new MovieServices()

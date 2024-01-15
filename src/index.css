@@ -6,7 +6,7 @@ body {
       rgba(40, 180, 133, 0.8)
     ),
     url('movie-bg.jpg'); */
-  background-image: url('./movie-bg.svg');
+  background-image: url('movie-bg.svg');
 
   background-position-y: 10%;
   background-size: cover;

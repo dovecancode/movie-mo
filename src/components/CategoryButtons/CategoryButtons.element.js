@@ -16,4 +16,8 @@ export const ButtonCategory = styled(Button)(({ theme }) => ({
   '&:hover': {
     background: theme.palette.secondary.main,
   },
+
+  '&.active': {
+    background: theme.palette.secondary.main,
+  },
 }))

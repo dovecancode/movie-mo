@@ -7,6 +7,7 @@ import StarRating from '../StarRating'
 import { BackgroundBlur, MovieCardElement } from './MovieCard.element'
 
 import placeholder from '../../assets/placeholder.jpg'
+import { useFilmContext } from '../../contexts/useFilmContext'
 
 function MovieCard({
   poster_path,
@@ -18,10 +19,15 @@ function MovieCard({
   media_type,
   id,
 }) {
+  const { handleMediaType } = useFilmContext()
+  // const location = useLocation()
+
+  // const category = location.pathname === '/movies' ? 'movie' : 'tv'
+
   return (
-    <MovieCardElement>
+    <MovieCardElement onClick={() => handleMediaType(media_type)}>
       <BackgroundBlur className="bg-blur"></BackgroundBlur>
-      <Link to={`/${id}`} component={RouterLink}>
+      <Link to={`/film-details/${id}`} component={RouterLink}>
         <Box sx={{ position: 'relative' }}>
           <CardMedia
             className="card-media"

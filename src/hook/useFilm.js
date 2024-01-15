@@ -4,6 +4,7 @@ import movieServices from '../services/movieServices'
 
 function useFilm(query) {
   const location = useLocation()
+
   const [movies, setMovies] = useState([])
   const [status, setStatus] = useState('idle')
 
@@ -31,8 +32,10 @@ function useFilm(query) {
   useEffect(() => {
     async function getFilms() {
       if (apiQuery) {
+        // fire whenever using the searchbox
         getSearchFilm()
       } else {
+        // fire whenever movie and tv shows page visits
         setStatus('loading')
         try {
           const res = await movieServices.fetchData(`/discover/${category}`)
