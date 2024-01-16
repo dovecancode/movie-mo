@@ -23,9 +23,21 @@ const theme = createTheme({
       letterSpacing: '0.02rem',
     },
     subtitle1: {
-      fontWeight: 400,
       fontSize: '0.75rem',
+      fontWeight: 400,
       color: '#BEB7FB',
+    },
+    subtitle2: {
+      fontWeight: 700,
+      fontSize: '1.5rem',
+      color: '#EBEEF5',
+      letterSpacing: '-0.0225rem',
+    },
+    body1: {
+      color: '#8E95A9',
+      fontSize: '1.25rem',
+      fontWeight: 400,
+      lineHeight: '2rem',
     },
     fontFamily: ['Poppins', 'sans-serif'].join(','),
   },

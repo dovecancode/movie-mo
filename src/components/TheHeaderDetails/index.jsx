@@ -1,5 +1,4 @@
 import { Box, Container, Typography } from '@mui/material'
-import { useFilmContext } from '../../contexts/useFilmContext'
 import useFilmDetails from '../../hook/useFilmDetails'
 import {
   FeaturedImageDesktop,
@@ -8,9 +7,7 @@ import {
 } from './TheHeaderDetails.element'
 
 function TheHeaderDetails() {
-  const { mediaType } = useFilmContext()
-
-  const { details } = useFilmDetails(mediaType)
+  const { details } = useFilmDetails()
 
   const { backdrop_path, title, name } = details
 

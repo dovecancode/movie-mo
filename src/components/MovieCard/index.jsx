@@ -34,12 +34,12 @@ function MovieCard({
             component="img"
             image={
               poster_path
-                ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
                 : placeholder
             }
             sx={{ borderRadius: '0.5rem' }}
           />
-          <StarRating rating={+vote_average.toFixed(1)} />
+          <StarRating position="absolute" rating={vote_average} />
         </Box>
         <CardContent className="card-content">
           <Typography gutterBottom variant="h3" component="div">
