@@ -35,7 +35,7 @@ function Navbar() {
               }}
             >
               <Logo size={40} />
-              Dove Flix
+              Movie Mo
             </Typography>
           </Link>
 
