@@ -5,7 +5,7 @@ import LoaderSpinner from '../LoaderSpinner'
 import MovieCards from '../MovieCards'
 import PageTitle from '../PageTitle'
 import SearchBox from '../SearchBox'
-import { MovieSeriesSection } from './MovieSeries.element'
+import { MovieSeriesSection } from './MovieSeries.elements'
 
 function MovieSeries() {
   const { query } = useFilmContext()

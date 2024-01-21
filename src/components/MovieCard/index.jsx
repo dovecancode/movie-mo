@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom'
 
 import { shorterTitle } from '../../utils/helper'
 import StarRating from '../StarRating'
-import { BackgroundBlur, MovieCardElement } from './MovieCard.element'
+import { BackgroundBlur, MovieCardElement } from './MovieCard.elements'
 
 import placeholder from '../../assets/placeholder.jpg'
 import { useFilmContext } from '../../contexts/useFilmContext'
@@ -20,9 +20,6 @@ function MovieCard({
   id,
 }) {
   const { handleMediaType } = useFilmContext()
-  // const location = useLocation()
-
-  // const category = location.pathname === '/movies' ? 'movie' : 'tv'
 
   return (
     <MovieCardElement onClick={() => handleMediaType(media_type)}>

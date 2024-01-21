@@ -2,12 +2,10 @@ import { Box, Container, Stack, Typography } from '@mui/material'
 import useFilmDetails from '../../hook/useFilmDetails'
 import InfoPart from '../InfoPart'
 import StarRating from '../StarRating'
-import { Item } from './TheDetails.element'
+import { Item } from './TheDetails.elements'
 
 function TheDetails() {
   const { details } = useFilmDetails()
-
-  console.log(details)
 
   let {
     poster_path,

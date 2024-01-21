@@ -5,7 +5,7 @@ import LoaderSpinner from '../LoaderSpinner'
 import MovieCards from '../MovieCards'
 import PageTitle from '../PageTitle'
 import SearchBox from '../SearchBox'
-import { MovieSection } from './MotionPicture.element'
+import { MovieSection } from './MotionPicture.elements'
 
 function MotionPicture() {
   const { query } = useFilmContext()

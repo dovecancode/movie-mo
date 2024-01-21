@@ -1,15 +1,28 @@
 import { Box } from '@mui/material'
+import { useState } from 'react'
+import { useFilmContext } from '../../contexts/useFilmContext'
 import { ButtonCategory, ButtonContainer } from './CategoryButtons.element'
 
-const categories = ['All', 'Movies', 'TV Shows']
+const categories = ['All', 'Movie', 'TV Shows']
 
 function CategoryButtons() {
+  const { handleClickCategory } = useFilmContext()
+  const [isActive, setIsActive] = useState(0)
   return (
     <Box>
       <ButtonContainer>
-        {categories.map((category) => (
-          <ButtonCategory variant="contained" key={`category-${category}`}>
-            {category}
+        {categories.map((category, idx) => (
+          <ButtonCategory
+            key={`category-${idx}`}
+            className={isActive === idx ? 'active' : ''}
+            variant="contained"
+            onClick={() => {
+              category = category.split(' ')[0].toLowerCase()
+              setIsActive(idx)
+              handleClickCategory(category)
+            }}
+          >
+            {category === 'Movie' ? 'Movies' : category}
           </ButtonCategory>
         ))}
       </ButtonContainer>

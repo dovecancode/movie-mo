@@ -4,7 +4,7 @@ import {
   FeaturedImageDesktop,
   Header,
   TitleContainer,
-} from './TheHeaderDetails.element'
+} from './TheHeaderDetails.elements'
 
 function TheHeaderDetails() {
   const { details } = useFilmDetails()
