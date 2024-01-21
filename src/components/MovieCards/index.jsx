@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { MovieCardsContainer } from './MovieCards.element'
+import { MovieCardsContainer } from './MovieCards.elements'
 
 import MovieCard from '../MovieCard'
 

@@ -8,7 +8,6 @@ function FilmDetails() {
   const { status } = useFilmDetails()
 
   const isLoading = status === 'loading'
-  console.log(isLoading)
 
   return (
     <>

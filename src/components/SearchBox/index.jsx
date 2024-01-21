@@ -1,6 +1,6 @@
 import { Box, InputAdornment } from '@mui/material'
 import PropTypes from 'prop-types'
-import { SearchBoxInput } from './SearchBox.element'
+import { SearchBoxInput } from './SearchBox.elements'
 
 import { useState } from 'react'
 

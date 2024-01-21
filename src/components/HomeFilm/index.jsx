@@ -1,34 +1,14 @@
 import { Box, Container } from '@mui/material'
 import { PopularMoviesSection } from './PopularMovies.elements.js'
 
-import { useEffect, useState } from 'react'
 import CategoryButtons from '../CategoryButtons'
 
-import movieServices from '../../services/movieServices.js'
+import { useFilmContext } from '../../contexts/useFilmContext.jsx'
 import LoaderSpinner from '../LoaderSpinner'
 import MovieCards from '../MovieCards'
 
 function HomeFilm() {
-  const [trending, setTrending] = useState([])
-  const [status, setStatus] = useState('idle')
-
-  useEffect(() => {
-    async function getTrendingVideo() {
-      try {
-        setStatus('loading')
-        const data = await movieServices.fetchData('/trending/all/day')
-        const { results } = data
-        setTrending(results)
-
-        setStatus('success')
-      } catch (error) {
-        setStatus('error')
-        console.log(error)
-      }
-    }
-    getTrendingVideo()
-  }, [])
-
+  const { status, trendingFilm } = useFilmContext()
   const isLoading = status === 'loading'
   const isError = status === 'error'
 
@@ -46,7 +26,7 @@ function HomeFilm() {
             <LoaderSpinner />
           </Box>
         ) : (
-          <MovieCards films={trending} />
+          <MovieCards films={trendingFilm} />
         )}
       </Container>
     </PopularMoviesSection>
