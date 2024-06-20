@@ -1,4 +1,4 @@
-export function formatDate(date) {
+export function formatDate(date: string) {
   return new Date(date).toLocaleDateString('en-us', {
     year: 'numeric',
     month: 'short',
@@ -6,6 +6,6 @@ export function formatDate(date) {
   })
 }
 
-export function shorterTitle(title) {
+export function shorterTitle(title: string) {
   return title?.substring(0, 15)
 }

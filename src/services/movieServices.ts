@@ -8,28 +8,28 @@ class MovieServices {
   #api_key = '13e6760a3d1fea65cf6d5bf0216c7927'
 
   // when you pass endpoints it should start with a slash
-  async fetchData(endpoints) {
+  async fetchData(endpoints: string) {
     const res = await this.#httpInstance.get(
       `${endpoints}?api_key=${this.#api_key}&language=en-US`
     )
     return res.data
   }
 
-  async fetchSearchData(cat, q) {
+  async fetchSearchData(cat: string, q: string) {
     const res = await this.#httpInstance.get(
       `/search/${cat}?query=${q}&api_key=${this.#api_key}&language=en-US`
     )
     return res.data
   }
 
-  async getMovieDetails(id) {
+  async getMovieDetails(id: string) {
     const res = await this.#httpInstance.get(
       `/movie/${id}?&api_key=${this.#api_key}&language=en-US`
     )
     return res.data
   }
 
-  async getTvShowDetails(id) {
+  async getTvShowDetails(id: string) {
     const res = await this.#httpInstance.get(
       `/tv/${id}?&api_key=${this.#api_key}&language=en-US`
     )

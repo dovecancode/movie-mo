@@ -1,14 +1,17 @@
 import { Box, InputAdornment } from '@mui/material'
-import PropTypes from 'prop-types'
-import { SearchBoxInput } from './SearchBox.elements'
 
 import { useState } from 'react'
 
 import { LuSearch } from 'react-icons/lu'
-import { useFilmContext } from '../../contexts/useFilmContext'
+import { ContextType, useFilmContext } from '../../contexts/useFilmContext'
+import { SearchBoxInput } from './SearchBox.elements'
 
-function SearchBox({ placeholder }) {
-  const { query, handleSearchQuery } = useFilmContext()
+type SearboxProps = {
+  placeholder: string
+}
+
+function SearchBox({ placeholder }: SearboxProps) {
+  const { query, handleSearchQuery } = useFilmContext() as ContextType
 
   // this state is for input border color and and off
   const [isFocus, setIsFocus] = useState(false)
@@ -37,10 +40,6 @@ function SearchBox({ placeholder }) {
       />
     </Box>
   )
-}
-
-SearchBox.propTypes = {
-  placeholder: PropTypes.string,
 }
 
 export default SearchBox

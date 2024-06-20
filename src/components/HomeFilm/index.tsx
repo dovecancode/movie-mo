@@ -1,14 +1,13 @@
 import { Box, Container } from '@mui/material'
-import { PopularMoviesSection } from './PopularMovies.elements.js'
 
+import { useFilmContext } from '../../contexts/useFilmContext.js'
 import CategoryButtons from '../CategoryButtons'
-
-import { useFilmContext } from '../../contexts/useFilmContext.jsx'
 import LoaderSpinner from '../LoaderSpinner'
 import MovieCards from '../MovieCards'
+import { PopularMoviesSection } from './PopularMovies.elements.js'
 
 function HomeFilm() {
-  const { status, trendingFilm } = useFilmContext()
+  const { status, trendingFilm } = useFilmContext() || {}
   const isLoading = status === 'loading'
   const isError = status === 'error'
 
