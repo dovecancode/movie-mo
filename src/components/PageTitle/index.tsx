@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 type PageTitleProps = {
   title: string
-  siteName: string
+  siteName?: string
 }
 
 function PageTitle({ title, siteName = 'Movie Mo' }: PageTitleProps) {

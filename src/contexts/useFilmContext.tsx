@@ -4,18 +4,23 @@ import {
   useContext,
   useEffect,
   useReducer,
-  useState,
 } from 'react'
 import movieServices from '../services/movieServices'
 
 type State = {
   trendingFilm: any[] // Adjust the type according to the shape of your film objects
   categoryFilm: string
+  status: string
+  query: string
+  mediaType: string
 }
 
 type Action =
   | { type: 'GET_TRENDING_FILM'; payload: any[] } // Adjust the payload type as needed
   | { type: 'CAT_TYPE'; payload: string }
+  | { type: 'QUERY'; payload: string }
+  | { type: 'TYPE_QUERY'; payload: string }
+  | { type: 'DATA_FAILED' }
 
 export type ContextType = {
   query: string
@@ -29,37 +34,41 @@ export type ContextType = {
 
 const FilmContext = createContext<ContextType | null>(null)
 
+const initialState = {
+  trendingFilm: [],
+  categoryFilm: 'all',
+  status: 'loading',
+  query: '',
+  mediaType: '',
+}
+
 function reducer(state: State, action: Action) {
   switch (action.type) {
     case 'GET_TRENDING_FILM':
-      return { ...state, trendingFilm: action.payload }
+      return { ...state, trendingFilm: action.payload, status: 'success' }
     case 'CAT_TYPE':
-      return { ...state, categoryFilm: action.payload }
+      return { ...state, categoryFilm: action.payload, status: 'loading' }
+    case 'DATA_FAILED':
+      return { ...state, status: 'error' }
+    case 'QUERY':
+      return { ...state, query: action.payload }
+    case 'TYPE_QUERY':
+      return { ...state, query: action.payload }
     default:
       return state
   }
 }
 
 function FilmProvider({ children }: { children: ReactNode }) {
-  const initialState = { trendingFilm: [], categoryFilm: 'all' }
-  const [{ trendingFilm, categoryFilm }, dispatch] = useReducer(
-    reducer,
-    initialState
-  )
-
-  // const [trendingFilm, setTrendingFilm] = useState([])
-  // const [categoryFilm, setCategoryFilm] = useState('all')
-  const [status, setStatus] = useState('idle')
-
-  const [query, setQuery] = useState('')
-  const [mediaType, setMediaType] = useState('')
+  const [{ trendingFilm, categoryFilm, status, query, mediaType }, dispatch] =
+    useReducer(reducer, initialState)
 
   function handleSearchQuery(q: string) {
-    setQuery(q)
+    dispatch({ type: 'QUERY', payload: q })
   }
 
   function handleMediaType(type: string) {
-    setMediaType(type)
+    dispatch({ type: 'TYPE_QUERY', payload: type })
   }
 
   function handleClickCategory(cat: string) {
@@ -69,17 +78,14 @@ function FilmProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     async function getTrendingVideo() {
       try {
-        setStatus('loading')
         const data = await movieServices.fetchData(
           `/trending/${categoryFilm}/day`
         )
         const { results } = data
         dispatch({ type: 'GET_TRENDING_FILM', payload: results })
-
-        setStatus('success')
       } catch (error) {
-        setStatus('error')
         console.log(error)
+        dispatch({ type: 'DATA_FAILED' })
       }
     }
     getTrendingVideo()

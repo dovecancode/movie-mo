@@ -8,6 +8,7 @@ import { PopularMoviesSection } from './PopularMovies.elements.js'
 
 function HomeFilm() {
   const { status, trendingFilm } = useFilmContext() || {}
+
   const isLoading = status === 'loading'
   const isError = status === 'error'
 

@@ -6,7 +6,8 @@ import StarRating from '../StarRating'
 import { BackgroundBlur, MovieCardElement } from './MovieCard.elements'
 
 import placeholder from '../../assets/placeholder.jpg'
-import { useFilmContext } from '../../contexts/useFilmContext'
+import { ContextType, useFilmContext } from '../../contexts/useFilmContext'
+import theme from '../../MovieTheme'
 
 type MovieCardProps = {
   poster_path: string
@@ -29,12 +30,10 @@ function MovieCard({
   media_type,
   id,
 }: MovieCardProps) {
-  const { handleMediaType } = useFilmContext() || {}
+  const { handleMediaType } = useFilmContext() as ContextType
 
   return (
-    <MovieCardElement
-      onClick={() => handleMediaType && handleMediaType(media_type)}
-    >
+    <MovieCardElement theme={theme} onClick={() => handleMediaType(media_type)}>
       <BackgroundBlur className="bg-blur"></BackgroundBlur>
       <Link to={`/film-details/${id}`} component={RouterLink}>
         <Box sx={{ position: 'relative' }}>
@@ -64,7 +63,7 @@ function MovieCard({
           <Typography component="p">
             {/* {`Release: ${formatDate(first_air_date)}`}
             {`Release: ${formatDate(release_date)}`} */}
-            Release: {first_air_date || release_date}s
+            Release: {first_air_date || release_date}
           </Typography>
         </CardContent>
       </Link>
