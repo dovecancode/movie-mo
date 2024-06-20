@@ -1,7 +1,9 @@
 import styled from '@emotion/styled'
 import { Card } from '@mui/material'
 
-export const MovieCardElement = styled(Card)(({ theme }) => ({
+import { Theme } from '@mui/material/styles'
+
+export const MovieCardElement = styled(Card)(({ theme }: { theme: Theme }) => ({
   position: 'relative',
   height: '100%',
   width: '100%',

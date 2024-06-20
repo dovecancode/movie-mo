@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import movieServices from '../services/movieServices'
 
-function useFilm(query) {
+function useFilm(query: string) {
   const location = useLocation()
 
   const [movies, setMovies] = useState([])

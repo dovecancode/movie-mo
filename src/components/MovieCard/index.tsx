@@ -1,5 +1,4 @@
 import { Box, CardContent, CardMedia, Link, Typography } from '@mui/material'
-import PropTypes from 'prop-types'
 import { Link as RouterLink } from 'react-router-dom'
 
 import { shorterTitle } from '../../utils/helper'
@@ -8,6 +7,17 @@ import { BackgroundBlur, MovieCardElement } from './MovieCard.elements'
 
 import placeholder from '../../assets/placeholder.jpg'
 import { useFilmContext } from '../../contexts/useFilmContext'
+
+type MovieCardProps = {
+  poster_path: string
+  name: string
+  title: string
+  vote_average: number
+  first_air_date: string
+  release_date: string
+  media_type: string
+  id: number
+}
 
 function MovieCard({
   poster_path,
@@ -18,11 +28,13 @@ function MovieCard({
   release_date,
   media_type,
   id,
-}) {
-  const { handleMediaType } = useFilmContext()
+}: MovieCardProps) {
+  const { handleMediaType } = useFilmContext() || {}
 
   return (
-    <MovieCardElement onClick={() => handleMediaType(media_type)}>
+    <MovieCardElement
+      onClick={() => handleMediaType && handleMediaType(media_type)}
+    >
       <BackgroundBlur className="bg-blur"></BackgroundBlur>
       <Link to={`/film-details/${id}`} component={RouterLink}>
         <Box sx={{ position: 'relative' }}>
@@ -58,17 +70,6 @@ function MovieCard({
       </Link>
     </MovieCardElement>
   )
-}
-
-MovieCard.propTypes = {
-  vote_average: PropTypes.number,
-  poster_path: PropTypes.string,
-  name: PropTypes.string,
-  title: PropTypes.string,
-  first_air_date: PropTypes.string,
-  release_date: PropTypes.string,
-  id: PropTypes.number,
-  media_type: PropTypes.string,
 }
 
 export default MovieCard

@@ -16,7 +16,7 @@ const pages = ['Movies', 'TV Shows'] //Suggest me
 
 function Navbar() {
   return (
-    <NavbarContainer component="nav" position="static">
+    <NavbarContainer as="nav" position="static">
       <Container maxWidth={false}>
         <Toolbar>
           <Link

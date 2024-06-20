@@ -5,28 +5,30 @@ import LoaderSpinner from '../LoaderSpinner'
 import MovieCards from '../MovieCards'
 import PageTitle from '../PageTitle'
 import SearchBox from '../SearchBox'
-import { MovieSeriesSection } from './MovieSeries.elements'
+import { MovieSection } from './MotionPicture.elements'
 
-function MovieSeries() {
-  const { query } = useFilmContext()
-  const { status, movies } = useFilm(query)
+function MotionPicture() {
+  const { query } = useFilmContext() || {}
+
+  const { status, movies } = useFilm(query || '')
+
   const isLoading = status === 'loading'
 
   return (
-    <MovieSeriesSection>
+    <MovieSection>
       <Container>
-        <PageTitle title="TV Shows" />
-        <SearchBox placeholder="Search TV Shows" />
+        <PageTitle title="Movies" />
+        <SearchBox placeholder="Search Movies" />
         {isLoading ? (
-          <Box sx={{ height: '70vh', display: 'grid', placeItems: 'center' }}>
+          <Box sx={{ display: 'grid', placeItems: 'center' }}>
             <LoaderSpinner />
           </Box>
         ) : (
           <MovieCards films={movies} />
         )}
       </Container>
-    </MovieSeriesSection>
+    </MovieSection>
   )
 }
 
-export default MovieSeries
+export default MotionPicture

@@ -1,7 +1,12 @@
 import { Box, Typography } from '@mui/material'
 import PropTypes from 'prop-types'
 
-function InfoPart({ title, data }) {
+type InfoPartProps<T> = {
+  title: string
+  data: T
+}
+
+function InfoPart<T>({ title, data }: InfoPartProps<T>) {
   return (
     <Box sx={{ paddingBlock: '1rem', flex: 1 }}>
       <Typography
@@ -16,7 +21,7 @@ function InfoPart({ title, data }) {
           fontSize="1.25rem"
           variant="body1"
         >
-          {data}
+          {String(data)}
         </Typography>
       ) : (
         data.map((item, idx) => (
